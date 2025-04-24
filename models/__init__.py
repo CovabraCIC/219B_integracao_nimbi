@@ -1,1 +1,1 @@
-from models.produtos import SnapshotProdutos, DeltaProdutos
+from models.servicos import SnapshotServicos, DeltaServicos

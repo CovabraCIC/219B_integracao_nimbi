@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Função para enviar produto à API (POST)
-def post_to_api(product: Dict, codigoitem: str) -> Tuple[bool, str]:
+# Função para enviar serviço à API (POST)
+def post_to_api(service: Dict, codigoitem: str) -> Tuple[bool, str]:
     try:
         API_URL = "https://api01-qa.nimbi.net.br/API/rest/CatalogItemV2/v2/buy"
         headers = {
@@ -18,9 +18,9 @@ def post_to_api(product: Dict, codigoitem: str) -> Tuple[bool, str]:
             "Content-Type": "application/json"
         }
         
-        product_json = json.dumps(product, ensure_ascii=False)
-        response = requests.post(API_URL, headers=headers, data=product_json)
-        logger.info(f"[{codigoitem}] Requisição POST: {product_json}")
+        service_json = json.dumps(service, ensure_ascii=False)
+        response = requests.post(API_URL, headers=headers, data=service_json)
+        logger.info(f"[{codigoitem}] Requisição POST: {service_json}")
         return response.status_code in (200, 201), response.text
     except requests.RequestException as e:
         logger.error(f"[{codigoitem}] Erro na requisição POST: {str(e)}")
@@ -29,8 +29,8 @@ def post_to_api(product: Dict, codigoitem: str) -> Tuple[bool, str]:
         logger.error(f"[{codigoitem}] Erro em send_to_api: {str(e)}")
         raise
 
-# Função para atualizar produto na API (PUT)
-def put_to_api(product: Dict, codigoitem: str) -> Tuple[bool, str]:
+# Função para atualizar serviço na API (PUT)
+def put_to_api(service: Dict, codigoitem: str) -> Tuple[bool, str]:
     try:
         API_URL = "https://api01-qa.nimbi.net.br/API/rest/CatalogItemV2/v2/buy"
         headers = {
@@ -41,9 +41,9 @@ def put_to_api(product: Dict, codigoitem: str) -> Tuple[bool, str]:
             "ItemCode": codigoitem
         }
         
-        product_json = json.dumps(product, ensure_ascii=False)
-        response = requests.put(API_URL, headers=headers, data=product_json)
-        logger.info(f"[{codigoitem}] Requisição PUT: {product_json}")
+        service_json = json.dumps(service, ensure_ascii=False)
+        response = requests.put(API_URL, headers=headers, data=service_json)
+        logger.info(f"[{codigoitem}] Requisição PUT: {service_json}")
         return response.status_code in (200, 201), response.text
     except requests.RequestException as e:
         logger.error(f"[{codigoitem}] Erro na requisição PUT: {str(e)}")

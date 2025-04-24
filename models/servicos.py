@@ -6,8 +6,8 @@ from sqlalchemy.dialects.postgresql import DOUBLE_PRECISION
 
 Base = declarative_base()
 
-class DeltaProdutos(Base):
-    __tablename__ = 'delta_produtos'
+class DeltaServicos(Base):
+    __tablename__ = 'delta_servicos'
     __table_args__ = {'schema': 'nimbi'}
 
     codigoitem = mapped_column(String, primary_key=True)
@@ -33,8 +33,8 @@ class DeltaProdutos(Base):
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-class ProdutosNimbi(Base):
-    __tablename__ = 'produtos_nimbi'
+class ServicosNimbi(Base):
+    __tablename__ = 'servicos_nimbi'
     __table_args__ = {'schema': 'nimbi'}
 
     codigoitem = mapped_column(String, primary_key=True)
@@ -60,8 +60,8 @@ class ProdutosNimbi(Base):
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-class SnapshotProdutos(Base):
-    __tablename__ = 'snapshot_produtos'
+class SnapshotServicos(Base):
+    __tablename__ = 'snapshot_servicos'
     __table_args__ = {'schema': 'nimbi'}
 
     codigoitem = mapped_column(String, primary_key=True)
