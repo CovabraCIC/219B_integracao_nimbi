@@ -10,7 +10,7 @@ load_dotenv()
 # Função para enviar serviço à API (POST)
 def post_to_api(service: Dict, codigoitem: str) -> Tuple[bool, str]:
     try:
-        API_URL = "https://api01-qa.nimbi.net.br/API/rest/CatalogItemV2/v2/buy"
+        API_URL = os.getenv("NIMBI_API_URL")
         headers = {
             "ClientAPI_ID": os.getenv("NIMBI_CLIENT_API_ID"),
             "ClientAPI_Key": os.getenv("NIMBI_CLIENT_API_KEY"),
@@ -32,7 +32,7 @@ def post_to_api(service: Dict, codigoitem: str) -> Tuple[bool, str]:
 # Função para atualizar serviço na API (PUT)
 def put_to_api(service: Dict, codigoitem: str) -> Tuple[bool, str]:
     try:
-        API_URL = "https://api01-qa.nimbi.net.br/API/rest/CatalogItemV2/v2/buy"
+        API_URL = os.getenv("NIMBI_API_URL")
         headers = {
             "ClientAPI_ID": os.getenv("NIMBI_CLIENT_API_ID"),
             "ClientAPI_Key": os.getenv("NIMBI_CLIENT_API_KEY"),
